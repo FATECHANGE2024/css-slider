@@ -1,0 +1,44 @@
+.banner{
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.banner .slider{
+    position: absolute;
+    width: 200px;
+    height: 250px;
+    top: 10%;
+    left: calc(50% - 100px);
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    animation: rotateslider 12s infinite linear;   /*Continuous rotation*/
+}
+
+
+
+@keyframes rotateslider{
+    from{
+        transform:perspective(1300px) rotateX(-10deg) rotateY(0deg);
+    }
+    to{
+        transform:perspective(1300px) rotateX(-10deg) rotateY(360deg);
+    }
+}
+
+.banner .slider .item{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-origin: center center;
+    transform: rotateY(calc(var(--position) * 36deg)) translateZ(530px); /* Adjust rotation for each item */
+}
+
+.banner .slider .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
